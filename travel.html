@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isha & Shashank · Travelling to Goa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF5E9; --paper-2:#F4EAD6; --ink:#35261B; --muted:#6E5A48;
+  --gold:#B08433; --sindoor:#8A2432; --marigold:#E39B24; --leaf:#4F6A38;
+  --line:rgba(176,132,51,.45); --tick:#8A2432;
+  --serif:"Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --deva:"Tiro Devanagari Marathi", "Noto Serif Devanagari", "Kohinoor Devanagari", serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1F1518; --paper-2:#2A1D20; --ink:#F2E6D2; --muted:#C9B69C;
+    --gold:#D4AA5C; --sindoor:#E07A86; --marigold:#F0B04A; --leaf:#9CB57F;
+    --line:rgba(212,170,92,.4); --tick:#E07A86;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1F1518; --paper-2:#2A1D20; --ink:#F2E6D2; --muted:#C9B69C;
+  --gold:#D4AA5C; --sindoor:#E07A86; --marigold:#F0B04A; --leaf:#9CB57F;
+  --line:rgba(212,170,92,.4); --tick:#E07A86;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.2rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--sindoor);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--marigold);outline-offset:3px;border-radius:2px}
+
+.toran{display:block;width:100%;height:78px}
+.wrap{max-width:720px;margin:0 auto;padding:0 1.4rem 4rem}
+
+header{text-align:center;padding:1.2rem 0 2.2rem}
+.welcome{font-family:var(--deva);color:var(--sindoor);font-size:2.4rem;line-height:1.3;margin:0}
+h1{font-weight:500;font-style:italic;font-size:clamp(2.6rem,8vw,3.8rem);line-height:1.05;margin:.3rem 0 .6rem;letter-spacing:-.01em}
+h1 .amp{color:var(--gold);font-style:normal;font-weight:400;padding:0 .12em}
+.when{font-size:1.25rem;color:var(--muted);margin:0}
+.lede{max-width:34em;margin:1.4rem auto 0;font-size:1.25rem}
+.rule{display:flex;align-items:center;gap:.8rem;justify-content:center;margin:2rem 0 0;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;background:var(--line);flex:1;max-width:160px}
+
+.progress{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:.6rem 0;margin:0 0 1rem;display:flex;align-items:center;gap:1rem;font-size:1.05rem;color:var(--muted)}
+.bar{flex:1;height:4px;background:var(--paper-2);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--marigold),var(--sindoor));transition:width .4s ease}
+.reset{font:inherit;font-size:1rem;background:none;border:0;color:var(--sindoor);cursor:pointer;padding:.2rem .3rem;text-decoration:underline;text-underline-offset:3px}
+
+section{padding:2.2rem 0 .6rem;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.head{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.6rem}
+h2{font-weight:600;font-size:1.9rem;line-height:1.15;margin:0}
+.deva{font-family:var(--deva);color:var(--gold);font-size:1.15rem}
+.intro{color:var(--muted);margin:0 0 1rem}
+
+ul.check{list-style:none;margin:0;padding:0}
+ul.check li{border-bottom:1px dotted var(--line)}
+ul.check li:last-child{border-bottom:0}
+ul.check label{display:grid;grid-template-columns:1.6rem 1fr;gap:.8rem;padding:.8rem 0;cursor:pointer}
+ul.check input{appearance:none;-webkit-appearance:none;width:1.25rem;height:1.25rem;margin:.3rem 0 0;border:1.5px solid var(--gold);border-radius:50%;background:transparent;cursor:pointer;display:grid;place-content:center;transition:background .2s}
+ul.check input::after{content:"";width:.42rem;height:.7rem;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px);opacity:0}
+ul.check input:checked{background:var(--tick);border-color:var(--tick)}
+ul.check input:checked::after{opacity:1}
+.item strong{font-weight:600}
+.item p{margin:.2rem 0 0;color:var(--muted);font-size:1.1rem}
+li:has(input:checked) .item strong{text-decoration:line-through;text-decoration-color:var(--gold);color:var(--muted)}
+
+.note{background:var(--paper-2);border-left:3px solid var(--marigold);padding:1rem 1.2rem;margin:1rem 0 .4rem;font-size:1.1rem}
+.note p{margin:0}
+
+/* flight helper */
+.flight{background:var(--paper-2);padding:1.2rem 1.2rem 1.4rem;margin:1rem 0 .4rem;border-radius:3px}
+.flight h3{font-weight:600;font-size:1.3rem;margin:0 0 .2rem}
+.flight .sub{margin:0 0 1rem;color:var(--muted);font-size:1.05rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 1rem}
+.grid .full{grid-column:1/-1}
+.flight label{display:block;font-size:1rem;color:var(--muted)}
+.flight input,.flight select{width:100%;font:inherit;font-size:1.1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:.45rem .6rem;margin-top:.2rem}
+.btn{margin-top:1rem;font:inherit;font-size:1.1rem;font-weight:600;background:var(--sindoor);color:var(--paper);border:0;border-radius:3px;padding:.6rem 1.2rem;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.status{margin-left:.8rem;font-size:1rem;color:var(--leaf)}
+#msg{display:none;width:100%;margin-top:.8rem;font:inherit;font-size:1rem;background:var(--paper);color:var(--ink);border:1px solid var(--line);padding:.6rem;min-height:9rem}
+
+.links{display:grid;grid-template-columns:1fr 1fr;gap:.2rem 1.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.links li{padding:.55rem 0;border-bottom:1px dotted var(--line)}
+.links a{font-weight:600}
+.links span{display:block;color:var(--muted);font-size:1rem;line-height:1.4}
+
+footer{text-align:center;padding:3rem 0 1rem;border-top:1px solid var(--line);margin-top:2rem}
+footer .sign{font-style:italic;font-size:1.6rem;margin:.2rem 0}
+footer .small{color:var(--muted);font-size:1rem;margin:.6rem 0 0}
+
+@media (max-width:560px){
+  body{font-size:1.12rem}
+  .grid,.links{grid-template-columns:1fr}
+  .toran{height:60px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .progress,.flight,.reset{display:none}
+  body{background:#fff;font-size:11pt}
+  section{break-inside:avoid;padding-top:1rem}
+  .toran{height:50px}
+}
+</style>
+</head>
+<body>
+
+<svg class="toran" viewBox="0 0 1200 78" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+  <defs>
+    <g id="bloom">
+      <circle r="9" fill="var(--marigold)"/>
+      <circle r="5.5" fill="#D9811A" opacity=".75"/>
+      <circle r="2.2" fill="var(--sindoor)"/>
+    </g>
+    <path id="leaf" d="M0 0 C 7 10, 7 26, 0 38 C -7 26, -7 10, 0 0 Z" fill="var(--leaf)"/>
+  </defs>
+  <path d="M0 6 Q 600 22 1200 6" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+  <g id="strands"></g>
+</svg>
+
+<div class="wrap">
+<header>
+  <p style="text-align:left;margin:0 0 .6rem;font-size:1.05rem"><a href="./">Back to the wedding website</a></p>
+  <p class="welcome" lang="mr">सुस्वागतम</p>
+  <h1>Isha<span class="amp">&amp;</span>Shashank</h1>
+  <p class="when">23 to 25 October 2026 · JW Marriott Goa, Vagator</p>
+  <p class="lede">We are so happy you are making the trip. Here is everything to sort out before you fly, so all you have to do in Goa is celebrate with us.</p>
+  <div class="rule" aria-hidden="true">✿</div>
+</header>
+
+<div class="progress" role="status" aria-live="polite">
+  <span id="count">0 of 0 done</span>
+  <div class="bar"><i id="fill"></i></div>
+  <button class="reset" id="reset" type="button">Clear ticks</button>
+</div>
+
+<main>
+
+<section id="visa">
+  <div class="head"><h2>Passport and visa</h2><span class="deva" lang="mr">प्रवास</span></div>
+  <p class="intro">Start this first. It is the one thing nobody can fix for you at the airport.</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="passport"><span class="item"><strong>Check your passport dates</strong><p>It should be valid for at least six months after you land, with two blank pages.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="evisa"><span class="item"><strong>Apply for your Indian e-Visa</strong><p>Choose e-Tourist Visa on the official site: <a href="https://indianvisaonline.gov.in/evisa/" target="_blank" rel="noopener">indianvisaonline.gov.in/evisa</a>. The minimum is four days before arrival, but please apply three to four weeks ahead. Only use the .gov.in site; lookalike agent sites charge extra.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="oci"><span class="item"><strong>OCI card holders: no visa needed</strong><p>Travel with both your OCI card and the passport linked to it.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="earrival"><span class="item"><strong>File your e-Arrival Card within 72 hours of landing</strong><p>Required for every foreign passport and OCI holder. It is free, takes about five minutes, and one form can cover a family of up to five. File at <a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener">indianvisaonline.gov.in/earrival</a> or the Su-Swagatam app, then save the QR code. For your address, use JW Marriott Goa, Vagator, Bardez, Goa.</p></span></label></li>
+  </ul>
+</section>
+
+<section id="flights">
+  <div class="head"><h2>Flights</h2><span class="deva" lang="mr">आगमन</span></div>
+  <p class="intro">Once you have booked, send your details to Shashank so we can plan arrivals and transfers.</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="airport"><span class="item"><strong>Fly into Mopa (GOX) if you can</strong><p>Manohar International Airport in North Goa is the closer airport to Vagator, roughly 45 minutes by road. Dabolim (GOI) in the south also works but adds about 30 minutes.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="arrive"><span class="item"><strong>Plan to arrive on Friday 23 October</strong><p>Everyone is arriving on Friday, the first day of celebrations. Please book flights that land that day.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="transport"><span class="item"><strong>Join the group transfer to the resort</strong><p>We are organising group transport from the airport on Friday. If you would like to be part of it, let Shashank know when you send your flight details.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="sent"><span class="item"><strong>Share your flight details with Shashank</strong><p>Names of everyone travelling, arrival and departure flight numbers, dates and times. Use the form below to write the message for you.</p></span></label></li>
+  </ul>
+
+  <div class="flight">
+    <h3>Write my flight message</h3>
+    <p class="sub">Fill in what you have, copy it, and paste it into WhatsApp or email to Shashank.</p>
+    <div class="grid">
+      <div class="full"><label for="f-names">Who is travelling</label><input id="f-names" placeholder="e.g. Anita and Raj Mehta"></div>
+      <div><label for="f-in">Arrival flight</label><input id="f-in" placeholder="e.g. 6E 5102"></div>
+      <div><label for="f-inwhen">Arrival date and time</label><input id="f-inwhen" placeholder="e.g. 23 Oct, 10:30"></div>
+      <div><label for="f-port">Landing at</label><select id="f-port"><option>Mopa (GOX)</option><option>Dabolim (GOI)</option><option>Not sure yet</option></select></div>
+      <div><label for="f-from">Flying from</label><input id="f-from" placeholder="e.g. New York via Mumbai"></div>
+      <div><label for="f-out">Departure flight</label><input id="f-out" placeholder="e.g. 6E 5103"></div>
+      <div><label for="f-outwhen">Departure date and time</label><input id="f-outwhen" placeholder="e.g. 26 Oct, 11:00"></div>
+      <div class="full"><label for="f-group">Group transport from the airport</label><select id="f-group"><option>Yes, please include us</option><option>No, we will make our own way</option><option>Not sure yet</option></select></div>
+    </div>
+    <button class="btn" id="copy" type="button">Copy message</button><span class="status" id="copied" aria-live="polite"></span>
+    <textarea id="msg" readonly aria-label="Your flight message"></textarea>
+  </div>
+</section>
+
+<section id="outfits">
+  <div class="head"><h2>Outfits</h2><span class="deva" lang="mr">पोशाख</span></div>
+  <p class="intro">Five celebrations across three days: Mehendi, Sangeet, Poolside Lunch, Pheras, and the Reception and Dinner. Dress codes for each are on our <a href="./#program">wedding website</a>.</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="plan"><span class="item"><strong>Plan one outfit per event</strong><p>Lay them out together before you pack so nothing gets left behind.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="help"><span class="item"><strong>Need help with Indian wear? Tell us early</strong><p>Send us your sizes, colours you like, and budget. We can arrange outfits in India and have them ready when you land. Stitching takes a few weeks, so the sooner the better.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="weather"><span class="item"><strong>Pack for warm, humid days</strong><p>Late October in Goa is typically around 30°C in the day and mid 20s at night, with the odd shower. Breathable fabrics, flats or block heels for lawns and sand, and a light shawl for air-conditioned rooms.</p></span></label></li>
+  </ul>
+</section>
+
+<section id="money">
+  <div class="head"><h2>Rupees</h2><span class="deva" lang="mr">पैसे</span></div>
+  <p class="intro">Rupees are hard to buy outside India, so let us help.</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="cash"><span class="item"><strong>Tell us if you want cash waiting for you</strong><p>Let us know how much and we will have INR ready when you arrive. Useful for tips, taxis, beach shacks and markets.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="cards"><span class="item"><strong>Bring a Visa or Mastercard</strong><p>Accepted at the resort and most larger shops and restaurants. Amex is less widely taken.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="bank"><span class="item"><strong>Tell your bank you are travelling</strong><p>So your cards are not blocked on the first swipe in India.</p></span></label></li>
+  </ul>
+</section>
+
+<section id="pack">
+  <div class="head"><h2>Before you fly</h2><span class="deva" lang="mr">तयारी</span></div>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="plug"><span class="item"><strong>Plug adapter</strong><p>India uses Type C, D and M sockets at 230V. A universal adapter covers it.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="sim"><span class="item"><strong>Phone plan or eSIM</strong><p>Check roaming with your carrier, or buy an India eSIM before you leave. WhatsApp is how everyone will coordinate.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="meds"><span class="item"><strong>Medicines and a quick health check</strong><p>Carry prescriptions in original packaging, plus sunscreen and mosquito repellent. For vaccine advice, see a travel clinic or the CDC page below.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="insure"><span class="item"><strong>Travel insurance</strong><p>Worth having for flight changes and anything medical.</p></span></label></li>
+    <li><label><input type="checkbox" data-k="taxi"><span class="item"><strong>Know how to get around</strong><p>Uber and Ola do not operate in Goa. Use the hotel desk or the state's GoaMiles app. Drink bottled or filtered water.</p></span></label></li>
+  </ul>
+  <div class="note"><p>India runs on IST, 9½ hours ahead of New York in late October. In an emergency, dial 112.</p></div>
+</section>
+
+<section id="help">
+  <div class="head"><h2>Anything else?</h2><span class="deva" lang="mr">मदत</span></div>
+  <p class="intro">If any part of the trip feels like a lot, ask us. We are happy to help with:</p>
+  <ul class="check">
+    <li><label><input type="checkbox" data-k="h-transfer"><span class="item"><strong>Airport drop-offs and any travel outside the group transfer</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="h-beauty"><span class="item"><strong>Hair, makeup, mehendi or saree and turban tying</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="h-nights"><span class="item"><strong>Extra nights, or travel in India before or after</strong></span></label></li>
+    <li><label><input type="checkbox" data-k="h-diet"><span class="item"><strong>Dietary needs, allergies or accessibility</strong><p>Tell us so we can pass it on to the kitchen and the hotel.</p></span></label></li>
+  </ul>
+</section>
+
+<section id="links">
+  <div class="head"><h2>Useful links</h2><span class="deva" lang="mr">दुवे</span></div>
+  <ul class="links">
+    <li><a href="./">Our wedding website</a><span>Program, dress codes, venue and RSVP</span></li>
+    <li><a href="https://indianvisaonline.gov.in/evisa/" target="_blank" rel="noopener">Indian e-Visa</a><span>Official application portal</span></li>
+    <li><a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener">e-Arrival Card</a><span>File within 72 hours of landing</span></li>
+    <li><a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/India.html" target="_blank" rel="noopener">US travel advice for India</a><span>US State Department</span></li>
+    <li><a href="https://www.gov.uk/foreign-travel-advice/india" target="_blank" rel="noopener">UK travel advice for India</a><span>UK Foreign Office</span></li>
+    <li><a href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/india" target="_blank" rel="noopener">Health and vaccines</a><span>CDC traveller page for India</span></li>
+    <li><a href="https://www.boi.gov.in/" target="_blank" rel="noopener">Bureau of Immigration</a><span>Entry rules and updates</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="rule" aria-hidden="true">✿</div>
+  <p class="small">Questions about anything on this page? Message Shashank or Isha.</p>
+  <p class="small"><a href="./">Back to our wedding website</a></p>
+  <p class="sign">See you in Goa</p>
+  <p class="deva" lang="mr">इशा आणि शशांक</p>
+</footer>
+</div>
+
+<script>
+// toran strands
+(function(){
+  var g=document.getElementById('strands'),ns='http://www.w3.org/2000/svg',n=24,w=1200/n;
+  for(var i=0;i<n;i++){
+    var x=w/2+i*w, t=(x/1200), y=6+32*t*(1-t);
+    var s=document.createElementNS(ns,'g');
+    var len=(i%2?26:40);
+    var line=document.createElementNS(ns,'line');
+    line.setAttribute('x1',x);line.setAttribute('y1',y);line.setAttribute('x2',x);line.setAttribute('y2',y+len);
+    line.setAttribute('stroke','var(--gold)');line.setAttribute('stroke-width','1');
+    s.appendChild(line);
+    if(i%2){
+      var u=document.createElementNS(ns,'use');u.setAttribute('href','#leaf');
+      u.setAttribute('transform','translate('+x+','+(y+4)+')');s.appendChild(u);
+    }else{
+      [14,30,46].forEach(function(dy,j){
+        var b=document.createElementNS(ns,'use');b.setAttribute('href','#bloom');
+        var sc=j===2?1:0.8;b.setAttribute('transform','translate('+x+','+(y+dy)+') scale('+sc+')');s.appendChild(b);
+      });
+    }
+    g.appendChild(s);
+  }
+})();
+
+// checklist persistence
+(function(){
+  var KEY='is-goa-checklist-v1',boxes=[].slice.call(document.querySelectorAll('ul.check input')),state={};
+  try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){state={}}
+  function render(){
+    var done=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('count').textContent=done+' of '+boxes.length+' done';
+    document.getElementById('fill').style.width=(boxes.length?done/boxes.length*100:0)+'%';
+  }
+  boxes.forEach(function(b){
+    b.checked=!!state[b.dataset.k];
+    b.addEventListener('change',function(){
+      state[b.dataset.k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+      render();
+    });
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    boxes.forEach(function(b){b.checked=false});state={};
+    try{localStorage.removeItem(KEY)}catch(e){}
+    render();
+  });
+  render();
+})();
+
+// flight message
+(function(){
+  function v(id){return document.getElementById(id).value.trim()}
+  document.getElementById('copy').addEventListener('click',function(){
+    var lines=['Hi Shashank, here are our travel details for Goa:',''];
+    if(v('f-names'))lines.push('Travelling: '+v('f-names'));
+    if(v('f-from'))lines.push('Flying from: '+v('f-from'));
+    lines.push('Arriving: '+(v('f-in')||'TBC')+', '+(v('f-inwhen')||'TBC')+', at '+document.getElementById('f-port').value);
+    lines.push('Departing: '+(v('f-out')||'TBC')+', '+(v('f-outwhen')||'TBC'));
+    lines.push('Group transport: '+document.getElementById('f-group').value);
+    var text=lines.join('\n'),ta=document.getElementById('msg'),st=document.getElementById('copied');
+    ta.value=text;ta.style.display='block';
+    function fallback(){ta.focus();ta.select();try{document.execCommand('copy');st.textContent='Copied'}catch(e){st.textContent='Select the text below and copy it'}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){st.textContent='Copied'},fallback);
+    }else fallback();
+  });
+})();
+</script>
+</body>
+</html>
